@@ -4,11 +4,13 @@
     class="post-card rounded-2xl border-2 border-gray-100 overflow-hidden"
   >
     <div
-      class="post-image w-[100%] h-[250px] bg-cover bg-no-repeat relative rounded-t-2xl"
-      :style="`background-image: url(${post?.image})`"
+      class="post-image w-[100%] h-[220px] bg-cover bg-no-repeat relative rounded-t-2xl"
     >
+      <NuxtImg :src="post?.image" class="object-cover h-[100%]"></NuxtImg>
       <div class="overlay-gradient absolute inset-0"></div>
-      <div class="flex justify-between items-center p-3 text-white relative">
+      <div
+        class="flex justify-between items-center p-3 text-white absolute top-0 right-0 left-0"
+      >
         <div
           class="chip text-sm font-semibold bg-green-100 text-green-800 px-2 rounded-full"
         >
