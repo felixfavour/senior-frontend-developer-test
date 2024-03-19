@@ -9,7 +9,7 @@
       </p>
     </div>
     <div class="posts-ctn grid grid-cols-2 gap-4 max-w-[800px] mx-auto pb-6">
-      <PostCard v-for="post in posts" :key="post.id" :post="post" />
+      <PostCard v-for="post in posts" :key="post?.id" :post="post" />
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ const query = reactive<PostWithUser>({
 })
 
 const { data: posts } = await useAsyncData(
-  "posts",
+  "multiple-posts",
   () =>
     $fetch("/api/posts", {
       query,

@@ -1,11 +1,11 @@
 <template>
   <nuxt-link
-    :to="`/posts/${post.id}`"
+    :to="`/posts/${post?.id}`"
     class="post-card rounded-2xl border-2 border-gray-100 overflow-hidden"
   >
     <div
       class="post-image w-[100%] h-[250px] bg-cover bg-no-repeat relative rounded-t-2xl"
-      :style="`background-image: url(${post.image})`"
+      :style="`background-image: url(${post?.image})`"
     >
       <div class="overlay-gradient absolute inset-0"></div>
       <div class="flex justify-between items-center p-3 text-white relative">
@@ -15,21 +15,21 @@
           Article
         </div>
         <div class="pub-date text-sm">
-          {{ useFormattedTime(post.publishedAt) }}
+          {{ useFormattedTime(post?.publishedAt) }}
         </div>
       </div>
     </div>
     <div class="others p-4 px-6 flex flex-col gap-2">
-      <div class="post-title text-lg font-semibold">{{ post.title }}</div>
-      <div class="min-content text-sm" v-html="post.excerpt"></div>
+      <div class="post-title text-lg font-semibold">{{ post?.title }}</div>
+      <div class="min-content text-sm" v-html="post?.excerpt"></div>
       <div class="flex justify-between items-center mt-4 text-sm">
         <div class="author flex items-center gap-2">
           <NuxtImg
-            :src="post.user.avatar"
+            :src="post?.user.avatar"
             alt="Avatar of blog author"
             class="avatar rounded-full w-[40px] min-w-[40px] h-[40px] bg-gray-200 object-cover"
           ></NuxtImg>
-          <p>{{ post.user.firstName }} {{ post.user.lastName }}</p>
+          <p>{{ post?.user.firstName }} {{ post?.user.lastName }}</p>
         </div>
         <div class="font-semibold">Read more</div>
       </div>
