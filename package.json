@@ -12,10 +12,11 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@nuxt/image": "^1.4.0",
+    "@nuxt/image": "npm:@nuxt/image-nightly@latest",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@vueuse/nuxt": "^10.9.0",
     "drizzle-orm": "^0.29.5",
+    "javascript-time-ago": "^2.5.9",
     "nanoid": "^5.0.6",
     "nuxt": "^3.10.3",
     "typescript": "^5.4.2",
