@@ -1,4 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import type { UserConfig as VitestUserConfigInterface } from "vitest/config"
+import vue from "@vitejs/plugin-vue"
+
+const vitestConfig: VitestUserConfigInterface = {
+  test: {
+    globals: true,
+    environment: "jsdom",
+  },
+}
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", '@nuxt/image'],
@@ -7,7 +16,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en'
       }
-    }
+    },
   },
   nitro: {
     experimental: {

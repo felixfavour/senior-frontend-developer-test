@@ -49,6 +49,7 @@
 </template>
 
 <script setup lang="ts">
+import { useFormattedTime } from "../composables/useFormattedTime.ts"
 import type { PostWithUser } from "~/types/index"
 
 const props = defineProps<{
