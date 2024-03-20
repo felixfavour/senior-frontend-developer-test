@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import type { PostWithUser } from "@/types"
+import type { PostWithUser } from "~/types/index"
 
 const route = useRoute()
 const img = useImage()

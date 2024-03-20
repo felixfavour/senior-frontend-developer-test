@@ -30,7 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import type { PostWithUser } from "@/types/index"
+import type { PostWithUser } from "~/types/index"
+
 const route = useRoute()
 const router = useRouter()
 
