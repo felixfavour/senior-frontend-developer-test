@@ -9,8 +9,9 @@
       <NuxtImg
         :src="post?.image"
         class="object-cover h-[100%]"
-        sizes="600px"
+        sizes="500px"
         loading="lazy"
+        :alt="`header image for blog title: ${post?.title}`"
       ></NuxtImg>
       <div class="overlay-gradient absolute inset-0"></div>
       <div
@@ -33,8 +34,9 @@
         <div class="author flex items-center gap-2">
           <NuxtImg
             :src="post?.user.avatar"
-            alt="Avatar of blog author"
+            sizes="40px"
             class="avatar rounded-full w-[40px] min-w-[40px] h-[40px] bg-gray-200 object-cover"
+            :alt="`profile image of blog post author: ${post?.user?.firstName}`"
           ></NuxtImg>
           <p>{{ post?.user.firstName }} {{ post?.user.lastName }}</p>
         </div>

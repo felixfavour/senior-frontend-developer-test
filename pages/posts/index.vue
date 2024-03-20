@@ -27,6 +27,39 @@ import type { PostWithUser } from "@/types/index"
 const route = useRoute()
 const router = useRouter()
 
+useHead({
+  title: "Blog - Vue School",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Your one-stop site for all things Vue. Tutorials, tips and tricks and more.",
+    },
+    {
+      hid: "og:description",
+      property: "og:description",
+      content:
+        "Your one-stop site for all things Vue. Tutorials, tips and tricks and more.",
+    },
+    {
+      hid: "og:title",
+      property: "og:title",
+      content: "Blog - Vue School",
+    },
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: "Blog - Vue School",
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content:
+        "Your one-stop site for all things Vue. Tutorials, tips and tricks and more.",
+    },
+  ],
+})
+
 const query = reactive<PostWithUser>({
   limit: 10,
   offset: 0,
