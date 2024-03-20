@@ -16,7 +16,7 @@
       </div>
     </AppHeader>
     <div
-      class="posts-ctn grid px-2 grid-cols-1 gap-4 max-w-[800px] mx-auto pb-6 sm:grid-cols-2 sm:px-0"
+      class="posts-ctn grid px-2 grid-cols-1 gap-4 max-w-[800px] mx-auto pb-18 sm:grid-cols-2 sm:px-0"
     >
       <PostCard
         v-for="(post, index) in posts"
@@ -25,7 +25,9 @@
         :lazy-load-image="index > 5"
       />
     </div>
-    <Loader class="my-12 mx-auto" v-show="isLoading" />
+    <div v-show="isLoading" class="py-12">
+      <Loader class="mx-auto" />
+    </div>
   </div>
 </template>
 
@@ -82,10 +84,7 @@ watch(query, () => {
 
 const { data: posts, pending: isLoading } = await useAsyncData<PostWithUser>(
   "multiple-posts",
-  () =>
-    $fetch("/api/posts", {
-      query,
-    }),
+  () => $fetch("/api/posts", { query }),
   {
     watch: [query],
   }
@@ -100,7 +99,9 @@ onMounted(() => {
         element.scrollHeight - element.scrollTop - element.clientHeight
       ) < 1
     ) {
-      query.limit += 10
+      if (!isLoading.value) {
+        query.limit += 10
+      }
     }
   })
 })
