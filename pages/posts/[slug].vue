@@ -2,7 +2,7 @@
   <div class="h-screen max-w-[600px] mx-auto py-12">
     <div class="author flex items-center gap-3">
       <NuxtImg
-        :src="post?.user.avatar"
+        :src="post?.user?.avatar"
         alt="Avatar of blog author"
         class="avatar rounded-full w-[50px] min-w-[50px] h-[50px] bg-gray-200 object-cover"
       ></NuxtImg>
@@ -18,7 +18,8 @@
 
     <h1 class="text-3xl font-bold my-6">{{ post?.title }}</h1>
 
-    <NuxtImg :src="post?.image" class="rounded-2xl mb-6"> </NuxtImg>
+    <NuxtImg :src="post?.image" class="rounded-lg mb-6" sizes="1000px">
+    </NuxtImg>
 
     <div class="html-content pb-12" v-html="post?.content"></div>
   </div>

@@ -1,12 +1,27 @@
 <template>
   <div ref="pageEl" class="h-screen">
-    <div class="header-ctn text-center p-6 pt-12">
-      <div class="text-sm text-slate-500">BLOG</div>
-      <h1 class="text-3xl font-bold">Vue School Blog</h1>
-      <p class="max-w-[500px] mx-auto">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, ipsam.
-        Repudiandae, modi ab at voluptatem fuga eius. normal
-      </p>
+    <div
+      class="header-ctn max-w-[800px] mx-auto pt-12 pb-8 flex justify-between items-center"
+    >
+      <div>
+        <h1 class="text-3xl font-bold">Vue School Blog</h1>
+        <p class="max-w-[500px] mx-auto">
+          Your one-stop site for all things Vue.
+        </p>
+      </div>
+      <div>
+        <label for="sort" class="flex items-center gap-1">
+          <input
+            type="checkbox"
+            name="sort"
+            id="sort"
+            true-value="newestFirst"
+            false-value="oldestFirst"
+            v-model="query.order"
+          />
+          Newest to Oldest
+        </label>
+      </div>
     </div>
     <div class="posts-ctn grid grid-cols-2 gap-4 max-w-[800px] mx-auto pb-6">
       <PostCard v-for="post in posts" :key="post?.id" :post="post" />
@@ -19,7 +34,7 @@
 import type { PostWithUser } from "@/types/index"
 
 const query = reactive<PostWithUser>({
-  limit: 20,
+  limit: 10,
   offset: 0,
   order: "oldestFirst",
   include: "user",

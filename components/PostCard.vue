@@ -6,7 +6,12 @@
     <div
       class="post-image w-[100%] h-[220px] bg-cover bg-no-repeat relative rounded-t-2xl"
     >
-      <NuxtImg :src="post?.image" class="object-cover h-[100%]"></NuxtImg>
+      <NuxtImg
+        :src="post?.image"
+        class="object-cover h-[100%]"
+        sizes="600px"
+        loading="lazy"
+      ></NuxtImg>
       <div class="overlay-gradient absolute inset-0"></div>
       <div
         class="flex justify-between items-center p-3 text-white absolute top-0 right-0 left-0"
