@@ -16,7 +16,7 @@
       </div>
     </AppHeader>
     <div
-      class="posts-ctn grid px-2 grid-cols-1 gap-4 max-w-[800px] mx-auto pb-6 md:grid-cols-2 md:px-0"
+      class="posts-ctn grid px-2 grid-cols-1 gap-4 max-w-[800px] mx-auto pb-6 sm:grid-cols-2 sm:px-0"
     >
       <PostCard v-for="post in posts" :key="post?.id" :post="post" />
     </div>

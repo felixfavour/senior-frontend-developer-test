@@ -1,6 +1,6 @@
 <template>
   <div
-    class="header-ctn max-w-[800px] mx-auto pt-12 pb-6 mb-6 gap-2 flex justify-between items-center border-b border-gray-100 flex-col md:flex-row"
+    class="header-ctn max-w-[800px] mx-auto pt-12 pb-6 mb-6 gap-2 flex justify-between items-center border-b border-gray-100 flex-col sm:flex-row"
   >
     <div>
       <h1 class="text-3xl font-bold">Vue School Blog</h1>

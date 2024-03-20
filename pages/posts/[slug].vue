@@ -5,7 +5,7 @@
         Go Back to Posts
       </nuxt-link>
     </AppHeader>
-    <div v-if="post" class="max-w-[600px] mx-auto py-12 px-2 md:px-0">
+    <div v-if="post" class="max-w-[600px] mx-auto py-12 px-2 sm:px-0">
       <div class="author flex items-center gap-3">
         <NuxtImg
           :src="post?.user?.avatar"
@@ -27,7 +27,7 @@
 
       <NuxtImg
         :src="post?.image"
-        class="rounded-lg mb-6 w-[100%] h-[200px] object-cover bg-slate-300 md:h-[340px]"
+        class="rounded-lg mb-6 w-[100%] h-[200px] object-cover bg-slate-300 sm:h-[340px]"
         sizes="700px"
         :alt="`header image for blog title: ${post?.title}`"
       >
