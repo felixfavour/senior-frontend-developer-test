@@ -1,9 +1,11 @@
 <template>
   <div class="h-screen">
     <AppHeader>
-      <nuxt-link to="/posts" class="btn-primary"> Go Back to Posts </nuxt-link>
+      <nuxt-link to="/posts" class="border rounded-md border-gray-200 p-2 px-4">
+        Go Back to Posts
+      </nuxt-link>
     </AppHeader>
-    <div v-if="post" class="max-w-[600px] mx-auto py-12">
+    <div v-if="post" class="max-w-[600px] mx-auto py-12 px-2 md:px-0">
       <div class="author flex items-center gap-3">
         <NuxtImg
           :src="post?.user?.avatar"

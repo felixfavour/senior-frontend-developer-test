@@ -15,7 +15,9 @@
         </label>
       </div>
     </AppHeader>
-    <div class="posts-ctn grid grid-cols-2 gap-4 max-w-[800px] mx-auto pb-6">
+    <div
+      class="posts-ctn grid px-2 grid-cols-1 gap-4 max-w-[800px] mx-auto pb-6 md:grid-cols-2 md:px-0"
+    >
       <PostCard v-for="post in posts" :key="post?.id" :post="post" />
     </div>
     <Loader class="my-12 mx-auto" v-show="isLoading" />
