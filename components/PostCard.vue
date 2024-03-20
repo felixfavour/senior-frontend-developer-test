@@ -8,10 +8,11 @@
     >
       <NuxtImg
         :src="post?.image"
-        class="object-cover h-[100%]"
-        sizes="500px"
-        loading="lazy"
+        class="object-cover h-[100%] w-[100%]"
+        sizes="500px sm:400px"
+        :loading="lazyLoadImage ? 'lazy' : 'eager'"
         :alt="`header image for blog title: ${post?.title}`"
+        format="webp"
       ></NuxtImg>
       <div class="overlay-gradient absolute inset-0"></div>
       <div
@@ -35,6 +36,7 @@
           <NuxtImg
             :src="post?.user.avatar"
             sizes="40px"
+            :loading="lazyLoadImage ? 'lazy' : 'eager'"
             class="avatar rounded-full w-[40px] min-w-[40px] h-[40px] bg-gray-200 object-cover"
             :alt="`profile image of blog post author: ${post?.user?.firstName}`"
           ></NuxtImg>
@@ -50,6 +52,7 @@
 import type { PostWithUser } from "@/types/index"
 const props = defineProps<{
   post: PostWithUser
+  lazyLoadImage: Boolean
 }>()
 </script>
 

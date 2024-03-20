@@ -5,8 +5,6 @@
 </template>
 
 <style>
-@import "https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Inter:wght@400;500;600;700&display=swap";
-
 .html-content {
   /*light*/
   color-scheme: light;
@@ -16,9 +14,9 @@
   --color-prettylights-syntax-constant-other-reference-link: #0a3069;
   --color-fg-default: #1f2328;
   --color-fg-muted: #656d76;
-  --color-fg-subtle: #6e7781;
+  --color-fg-subtle: #333333;
   --color-canvas-default: #ffffff;
-  --color-canvas-subtle: #f6f8fa;
+  --color-canvas-subtle: #f5f5f5;
   --color-border-default: #d0d7de;
   --color-border-muted: hsla(210, 18%, 87%, 1);
   --color-neutral-muted: rgba(175, 184, 193, 0.2);
@@ -48,6 +46,7 @@
   box-sizing: content-box;
   background-color: var(--color-canvas-default);
   margin-bottom: 1rem;
+  border-radius: 0.5rem;
 }
 
 .html-content code,
@@ -56,10 +55,6 @@
 .html-content samp {
   font-family: monospace;
   font-size: 1em;
-}
-
-.html-content figure {
-  margin: 1em 40px;
 }
 
 .html-content h1,
@@ -104,14 +99,12 @@
 .html-content p {
   margin-top: 0;
   margin-bottom: 10px;
-  font-family: "IBM Plex Serif", serif;
   line-height: 1.7rem;
 }
 
 .html-content p > * {
   margin-top: 0;
   margin-bottom: 10px;
-  font-family: "IBM Plex Serif", serif;
 }
 
 .html-content blockquote {
@@ -126,7 +119,6 @@
   margin-top: 0;
   margin-bottom: 1.5rem;
   padding-left: 2em;
-  font-family: "IBM Plex Serif", serif;
   line-height: 1.7rem;
 }
 

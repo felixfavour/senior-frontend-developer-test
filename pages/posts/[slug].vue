@@ -28,8 +28,9 @@
       <NuxtImg
         :src="post?.image"
         class="rounded-lg mb-6 w-[100%] h-[200px] object-cover bg-slate-300 sm:h-[340px]"
-        sizes="700px"
-        :alt="`header image for blog title: ${post?.title}`"
+        sizes="700px sm:400px"
+        :alt="`hero image for blog title: ${post?.title}`"
+        format="webp"
       >
       </NuxtImg>
 
@@ -39,15 +40,33 @@
 </template>
 
 <script setup lang="ts">
+import type { PostWithUser } from "@/types/index"
+
 const route = useRoute()
+const img = useImage()
 
 const { data: post, error } = await useAsyncData("one-post", () =>
   $fetch(`/api/posts/${route.params.slug}`, {
     query: {
       include: "user",
-      select: "id,title,content,publishedAt,image",
+      select: "id,title,excerpt,content,publishedAt,image",
     },
   })
+)
+
+// Find all <img> src attributes and replace their values
+// with the useImage composable for image optimization
+const imgSrcRegex = /<img[^>]*\bsrc\s*=\s*["']?([^"'\s>]+)["']?[^>]*>/g
+post.value.content = post.value?.content.replace(
+  imgSrcRegex,
+  (_match: string, srcValue: string) => {
+    const updatedSrcValue = img(srcValue, {
+      width: 700,
+      format: "webp",
+    })
+
+    return `<img src="${updatedSrcValue}" loading="lazy" alt="Illustration image for blog post">`
+  }
 )
 
 if (error.value) {
@@ -61,7 +80,11 @@ if (error.value) {
 useHead({
   title: `${post.value?.title} - Vue School`,
   meta: [
-    { hid: "description", name: "description", content: post.value?.excerpt },
+    {
+      hid: "slug-description",
+      name: "description",
+      content: post.value?.excerpt,
+    },
     { hid: "twitter:title", name: "twitter:title", content: post.value?.title },
     {
       hid: "twitter:description",

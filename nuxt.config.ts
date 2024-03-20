@@ -2,6 +2,13 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", '@nuxt/image'],
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'en'
+      }
+    }
+  },
   nitro: {
     experimental: {
       database: true,
@@ -13,7 +20,9 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    format: ['webp'],
-    domains: ['picsum.photos']
+    domains: ['picsum.photos'],
+    fastly: {
+      baseURL: 'https://www.fastly.picsum.photos'
+    }
   }
 });

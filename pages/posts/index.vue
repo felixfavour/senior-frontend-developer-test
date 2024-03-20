@@ -18,7 +18,12 @@
     <div
       class="posts-ctn grid px-2 grid-cols-1 gap-4 max-w-[800px] mx-auto pb-6 sm:grid-cols-2 sm:px-0"
     >
-      <PostCard v-for="post in posts" :key="post?.id" :post="post" />
+      <PostCard
+        v-for="(post, index) in posts"
+        :key="post?.id"
+        :post="post"
+        :lazy-load-image="index > 5"
+      />
     </div>
     <Loader class="my-12 mx-auto" v-show="isLoading" />
   </div>
