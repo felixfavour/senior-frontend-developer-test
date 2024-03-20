@@ -40,12 +40,12 @@
 </template>
 
 <script setup lang="ts">
-import type { PostWithUser } from "@/types/index"
+import type { PostWithUser } from "@/types"
 
 const route = useRoute()
 const img = useImage()
 
-const { data: post, error } = await useAsyncData("one-post", () =>
+const { data: post, error } = await useAsyncData<PostWithUser>("one-post", () =>
   $fetch(`/api/posts/${route.params.slug}`, {
     query: {
       include: "user",

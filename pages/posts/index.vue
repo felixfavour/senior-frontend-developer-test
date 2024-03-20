@@ -79,7 +79,7 @@ watch(query, () => {
   router.push(`/posts?sort=${query.order}`)
 })
 
-const { data: posts, pending: isLoading } = await useAsyncData(
+const { data: posts, pending: isLoading } = await useAsyncData<PostWithUser>(
   "multiple-posts",
   () =>
     $fetch("/api/posts", {

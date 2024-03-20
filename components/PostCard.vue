@@ -49,7 +49,8 @@
 </template>
 
 <script setup lang="ts">
-import type { PostWithUser } from "@/types/index"
+import { PostWithUser } from "@/types/index"
+
 const props = defineProps<{
   post: PostWithUser
   lazyLoadImage: Boolean
