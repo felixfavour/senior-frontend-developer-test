@@ -27,7 +27,7 @@
 
       <NuxtImg
         :src="post?.image"
-        class="rounded-lg mb-6 w-[100%] h-[340px] object-cover bg-slate-300"
+        class="rounded-lg mb-6 w-[100%] h-[200px] object-cover bg-slate-300 md:h-[340px]"
         sizes="700px"
         :alt="`header image for blog title: ${post?.title}`"
       >
