@@ -1,28 +1,20 @@
 <template>
-  <div ref="pageEl" class="h-screen">
-    <div
-      class="header-ctn max-w-[800px] mx-auto pt-12 pb-8 flex justify-between items-center"
-    >
-      <div>
-        <h1 class="text-3xl font-bold">Vue School Blog</h1>
-        <p class="max-w-[500px] mx-auto">
-          Your one-stop site for all things Vue.
-        </p>
-      </div>
+  <div class="h-screen">
+    <AppHeader>
       <div>
         <label for="sort" class="flex items-center gap-1">
           <input
             type="checkbox"
             name="sort"
             id="sort"
-            true-value="newestFirst"
-            false-value="oldestFirst"
+            false-value="newestFirst"
+            true-value="oldestFirst"
             v-model="query.order"
           />
           Newest to Oldest
         </label>
       </div>
-    </div>
+    </AppHeader>
     <div class="posts-ctn grid grid-cols-2 gap-4 max-w-[800px] mx-auto pb-6">
       <PostCard v-for="post in posts" :key="post?.id" :post="post" />
     </div>
@@ -32,16 +24,20 @@
 
 <script setup lang="ts">
 import type { PostWithUser } from "@/types/index"
+const route = useRoute()
+const router = useRouter()
 
 const query = reactive<PostWithUser>({
   limit: 10,
   offset: 0,
-  order: "oldestFirst",
+  order: route?.query?.sort || "oldestFirst",
   include: "user",
   select: "id,title,excerpt,publishedAt,image",
 })
 
-const pageEl = ref<HTMLElement>(null)
+watch(query, () => {
+  router.push(`/posts?sort=${query.order}`)
+})
 
 const { data: posts, pending: isLoading } = await useAsyncData(
   "multiple-posts",

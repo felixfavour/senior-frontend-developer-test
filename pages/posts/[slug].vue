@@ -1,27 +1,36 @@
 <template>
-  <div class="h-screen max-w-[600px] mx-auto py-12">
-    <div class="author flex items-center gap-3">
-      <NuxtImg
-        :src="post?.user?.avatar"
-        alt="Avatar of blog author"
-        class="avatar rounded-full w-[50px] min-w-[50px] h-[50px] bg-gray-200 object-cover"
-      ></NuxtImg>
-      <div class="texts">
-        <p class="font-semibold">
-          {{ post?.user.firstName }} {{ post?.user.lastName }}
-        </p>
-        <div class="text-sm text-gray-500">
-          {{ useFormattedTime(post?.publishedAt, "NORMAL") }}
+  <div class="h-screen">
+    <AppHeader>
+      <nuxt-link to="/posts" class="btn-primary"> Go Back to Posts </nuxt-link>
+    </AppHeader>
+    <div class="max-w-[600px] mx-auto py-12">
+      <div class="author flex items-center gap-3">
+        <NuxtImg
+          :src="post?.user?.avatar"
+          alt="Avatar of blog author"
+          class="avatar rounded-full w-[50px] min-w-[50px] h-[50px] bg-gray-200 object-cover"
+        ></NuxtImg>
+        <div class="texts">
+          <p class="font-semibold">
+            {{ post?.user.firstName }} {{ post?.user.lastName }}
+          </p>
+          <div class="text-sm text-gray-500">
+            {{ useFormattedTime(post?.publishedAt, "NORMAL") }}
+          </div>
         </div>
       </div>
+
+      <h1 class="text-3xl font-bold my-6">{{ post?.title }}</h1>
+
+      <NuxtImg
+        :src="post?.image"
+        class="rounded-lg mb-6 w-[100%] h-[340px] object-cover bg-slate-300"
+        sizes="1000px"
+      >
+      </NuxtImg>
+
+      <div class="html-content pb-12" v-html="post?.content"></div>
     </div>
-
-    <h1 class="text-3xl font-bold my-6">{{ post?.title }}</h1>
-
-    <NuxtImg :src="post?.image" class="rounded-lg mb-6" sizes="1000px">
-    </NuxtImg>
-
-    <div class="html-content pb-12" v-html="post?.content"></div>
   </div>
 </template>
 

@@ -4,7 +4,7 @@
     class="post-card rounded-2xl border-2 border-gray-100 overflow-hidden"
   >
     <div
-      class="post-image w-[100%] h-[220px] bg-cover bg-no-repeat relative rounded-t-2xl"
+      class="post-image w-[100%] h-[220px] bg-cover bg-no-repeat relative rounded-t-2xl bg-slate-300"
     >
       <NuxtImg
         :src="post?.image"
