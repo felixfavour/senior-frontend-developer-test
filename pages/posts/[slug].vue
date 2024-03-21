@@ -1,7 +1,10 @@
 <template>
   <div class="h-screen">
     <AppHeader>
-      <nuxt-link to="/posts" class="border rounded-md border-gray-200 p-2 px-4">
+      <nuxt-link
+        to="/posts"
+        class="border rounded-md border-gray-200 p-2 px-4 hover:border-green-600 hover:text-green-600 transition-all"
+      >
         Go Back to Posts
       </nuxt-link>
     </AppHeader>

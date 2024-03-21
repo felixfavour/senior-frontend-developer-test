@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     :to="`/posts/${post?.id}`"
-    class="post-card rounded-2xl border-2 border-gray-100 overflow-hidden"
+    class="group/card post-card rounded-2xl border-2 border-gray-100 overflow-hidden transition-all hover:border-green-600"
   >
     <div
       class="post-image w-[100%] h-[220px] bg-cover bg-no-repeat relative rounded-t-2xl bg-slate-300"
@@ -29,7 +29,11 @@
       </div>
     </div>
     <div class="others p-4 px-6 flex flex-col gap-2">
-      <div class="post-title text-lg font-semibold">{{ post?.title }}</div>
+      <div
+        class="post-title text-lg font-semibold group-hover/card:text-green-700 transition-all"
+      >
+        {{ post?.title }}
+      </div>
       <div class="min-content text-sm" v-html="post?.excerpt"></div>
       <div class="flex justify-between items-center mt-4 text-sm">
         <div class="author flex items-center gap-2">
@@ -42,7 +46,11 @@
           ></NuxtImg>
           <p>{{ post?.user.firstName }} {{ post?.user.lastName }}</p>
         </div>
-        <div class="font-semibold">Read more</div>
+        <div
+          class="font-semibold group-hover/card:text-green-700 transition-all"
+        >
+          Read more
+        </div>
       </div>
     </div>
   </nuxt-link>
